@@ -1,4 +1,4 @@
-import Component from "./Timer";
+import Component from "./Component";
 import { connect } from "react-redux";
 
 const mapStateToProps = (state) => {

@@ -1,4 +1,4 @@
-import Component from "./IntervalManager";
+import Component from "./Component";
 import { connect } from "react-redux";
 import { setRestMode } from "../../actions/actions";
 const mapStateToProps = (state) => {

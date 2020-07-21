@@ -17,3 +17,21 @@ export const setRestMode = () => {
     type: Consts.SET_REST_MODE,
   };
 };
+
+export const setSelectionScreen = () => {
+  return {
+    type: Consts.SELECTION_SCREEN,
+  };
+};
+
+export const setUserInputScreen = () => {
+  return {
+    type: Consts.USER_INPUT_SCREEEN,
+  };
+};
+
+export const setTimerScreen = () => {
+  return {
+    type: Consts.TIMER_SCREEN,
+  };
+};

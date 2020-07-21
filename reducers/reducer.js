@@ -1,7 +1,10 @@
 import { combineReducers, createStore, applyMiddleware } from "redux";
 import timerReducer from "./TimerReducer";
+import screenReducer from "./screenReducer";
+
 const rootReducer = combineReducers({
   timer: timerReducer,
+  screen: screenReducer,
 });
 
 const logger = (store) => (next) => (action) => {

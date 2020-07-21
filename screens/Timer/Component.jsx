@@ -1,14 +1,25 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Dimensions, Alert } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  Alert,
+  Button,
+} from "react-native";
 import IntervalManager from "../../components/IntervalManager";
-import { incrementRound, incrementInterval } from "../../actions/actions";
+import {
+  incrementRound,
+  incrementInterval,
+  setSelectionScreen,
+} from "../../actions/actions";
 
 export default (props) => {
+  const [isWorkoutDone, setWorkoutDone] = useState(false);
   const onIntervalComplete = () => {
     if (props.currentInterval >= props.intervals) {
-      //update rounds.
       if (props.currentRound >= props.rounds) {
-        //workout complete
+        setWorkoutDone(true);
       } else {
         //update round.
         props.dispatch(incrementRound());
@@ -18,9 +29,14 @@ export default (props) => {
       props.dispatch(incrementInterval());
     }
   };
+
+  const onCompleteButton = () => {
+    props.dispatch(setSelectionScreen());
+  };
+
   return (
     <View>
-      {!props.isWorkoutDone ? (
+      {!isWorkoutDone ? (
         <View
           style={{
             ...styles.timerView,
@@ -39,7 +55,8 @@ export default (props) => {
         </View>
       ) : (
         <View>
-          <Text>Workout Done!!!!</Text>
+          <Text>workout Complete</Text>
+          <Button title="Okay" onPress={onCompleteButton} />
         </View>
       )}
     </View>

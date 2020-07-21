@@ -1,4 +1,4 @@
-import Component from "./Counter";
+import Component from "./Component";
 import { connect } from "react-redux";
 
 const mapStateToProps = (state) => {
